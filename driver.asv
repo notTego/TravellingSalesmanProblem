@@ -1,0 +1,18 @@
+function [] = driver()
+%DRIVER Summary of this function goes here
+%   Detailed explanation goes here
+
+for i = 1:20
+    chr = int2str(i);
+    string = strcat("in\test", chr);
+    cities = readmatrix(string);
+    nn_tsp(cities, i);
+
+    %Held Karp
+    %[OptimalTour,mincost] = tsp_dp1(cities)
+    fileID = fopen(strcat("hk_out\test",chr,".out"),"w");
+    fprintf (fileID, "%.4f\n", shortestPathLength);
+
+end
+end
+
